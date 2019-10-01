@@ -1,0 +1,8 @@
+-O is the option to specify the path of the file you want to download to.
+
+wget <file.ext> -O /path/to/folder/file.ext
+
+
+-P is prefix where it will download the file in the directory
+
+wget <file.ext> -P /path/to/folder

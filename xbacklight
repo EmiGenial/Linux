@@ -1,0 +1,41 @@
+###INSTALACION:
+        
+   sudo apt-get install xbacklight
+
+###SALTAR A UN PORCENTAJE DE BRILLO:
+
+    xbacklight -set [porcentaje-brillo]
+
+    xbacklight -set 10
+    xbacklight -set 20
+    xbacklight -set 30
+    ...
+    xbacklight -set 100
+
+###Incremento/decremento de brillo en el porcentaje que deseamos:
+
+    xbacklight -inc [cantidad a incrementar]
+
+    xbacklight -inc 5
+    xbacklight -inc 10
+    xbacklight -inc 20
+
+Y para disminuir, usamos la opción:
+
+    xbacklight -inc [cantidad a decrementar]
+
+    xbacklight -dec 5
+    xbacklight -dec 10
+    xbacklight -dec 20
+
+
+# Si no funciona: 
+
+Check your /sys/class/backlight folder. If you can see an intel_backlight folder there and still you are getting the above error then creating a /etc/X11/xorg.conf file with the below configuration should work for you. It worked for me.
+
+  Section "Device"
+        Identifier  "Intel Graphics" 
+        Driver      "intel"
+        Option      "Backlight"  "intel_backlight"
+    EndSection
+Also, remember to logout and login again for the changes to take effect.

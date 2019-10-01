@@ -1,0 +1,115 @@
+sudo usermod -aG docker $USER
+docker run -ti --name http-server -p 8080:80 -v /home/administrador/dev/php7/:/home/myapp/ ubuntu:latest bash
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+LAMP Server with docker: https://www.youtube.com/watch?v=_mwWxgfZ7Zc
+
+docker run hello-world
+docker image ls
+docker container ls
+
+https://docs.docker.com/compose/install/
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+nano docker-compose.yml
+ 
+|1|version: '3.3'                  
+|2|services:                       
+|3|   web:                         
+|4|     image: php:7.3-apache      
+|5|     container_name: php73         
+|6|     volumes:                      
+|7|        - ./lamp/:/var/www/html/
+|8|     ports:
+|9|        - 8000:80
+ 
+
+docker-compose up
+
+# We don't have permitions, so press CTRL+C to stop docker-compose and execute the next command:
+
+sudo chown matt:matt lamp/ -R
+nano index.php
+ 
+|1|<?php                  
+|2| echo 'hello from docker';                   
+|3|?>  
+ 
+docker-compose up
+
+cd ./lamp
+nano dockerfile
+|1|FROM php:7.3.3-apache                  
+|2|RUN apt-update && apt-get upgrade -y           
+|3|RUN docker-php-ext-install mysqli
+|4|EXPOSE 80      
+ 
+
+nano docker-compose.yml
+| 1|version: '3.3'                  
+| 2|services:                       
+| 3|   web:
+| 4|     build:
+| 5|       context: ./lamp                       
+| 6|       dockerfile: Dockerfile    
+| 7|     container_name: php73         
+| 8|     volumes:                      
+| 9|        - ./lamp/:/var/www/html/
+|10|     ports:
+|11|        - 8000:80
+|12|   db:
+|13|      container_name: mysql8
+|14|      image: mysql:8.0
+|15|      command: --default-authentication-plugin=mysql_native_password
+|16|      restart: always
+|17|      environment:
+|18|         MYSQL_ROOT_PASSWORD: root
+|19|         MYSQL_DATABASE: test_db
+|20|         MYSQL_USER: devuser
+|21|         MYSQL_PASSWORD: devpass
+|22|      ports:
+|23|        - 6033:3306
+
+
+Another example::
+nano docker-compose.yml
+| 1|version: '3.3'                  
+| 2|services:                       
+| 3|   web:
+| 4|     build:
+| 5|       context: ./lamp                       
+| 6|       dockerfile: Dockerfile    
+| 7|     container_name: php73
+| 8|       depends_on:
+| 9|          - db
+|10|     volumes:                      
+|11|        - ./lamp/:/var/www/html/
+|12|     ports:
+|13|        - 8000:80
+|14|   db:
+|15|      container_name: mysql8
+|16|      image: mysql:8.0
+|17|      command: --default-authentication-plugin=mysql_native_password
+|18|      restart: always
+|19|      environment:
+|20|         MYSQL_ROOT_PASSWORD: root
+|21|         MYSQL_DATABASE: test_db
+|22|         MYSQL_USER: devuser
+|23|         MYSQL_PASSWORD: devpass
+|24|      ports:
+|25|        - 6033:3306
+
+
+#MySQL Admin:
+
+from linux terminal:
+docker exec -ti mysql8 bash
+root@08f0a9024c4a:/#
+root@08f0a9024c4a:/# mysql test_db -u devuser -p        or     "mysql --user=user_name --password db_name"
+Enter password: your_password
+
+from mysql terminal:
+mysql> help
+
+

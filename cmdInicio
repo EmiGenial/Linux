@@ -1,0 +1,49 @@
+/*---------- Programas ----------*/
+
+/*--- Displays ---*/
+// Autodetect:
+	xrandr --auto 
+
+// Expandir:
+	xrandr --output eDP1 --left-of HDMI1
+
+    xscreensaver    "Protector de pantallas"
+      xbacklight    "Brillo de pantalla"		ej: xbacklight {-set [10|80] | -inc 10 | -dec 5 }
+
+
+
+/*--- Files ---*/
+         xreader    "Lector PDF"
+             xed    "NotePad"
+          thunar    "Administrador de Archivos"
+
+
+/*--- App and Functions ---*/
+xfce4-appfinder
+
+
+
+/*-- Mount USB and Memory Units  --*/
+$sudo lsblk -fm   ;"Visualizar Particiones y Dispositivos"
+
+
+//Los dispositivos conectados estan en el diretorio:  /dev/sdb0, sdb1, sdb2, etc.
+
+//Linux monta los USB por defecto en el directorio:  /media
+
+//Sintaxis: mount [directorio del dispositivos] [directorio donde se quiere montar]
+
+Ej.:  $sudo mount /dev/sdb1 /home/matt/my_usb_directory
+      $sudo mount /dev/sdb2 /home/matt/project          //linux Mint lo suele montar en: /media/matt/<nombre_dispositivo>
+        
+
+// PARA DESMONTAR:	$sudo umount /dev/sdbxxx    o bien:    $sudo umount /home/matt/my_usb_directory
+
+/*-- Virtual Box Guest Additions --*/
+1-Ir a Dispositivos/Insertar Imagen CD guest additions
+2- En Linux Ubuntu/mint: sudo /media/$USER/VBox_GAs*/VBoxLinuxAdditions.run
+   En Debian: sudo sh /media/cdrom0/VBoxLinuxAdditions.run
+3-Reinicial la MV.
+    
+
+

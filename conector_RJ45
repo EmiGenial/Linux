@@ -1,0 +1,30 @@
+
+### CONEXION PC a SWITCH (568-B/cable patchcord)
+
+Conector 1		Conector 2
+----------		----------
+Blanco/Naranja		Blanco/Naranja
+Naranja		        Naranja
+Blanco/Verde		Blanco/Verde
+Azul		        Azul
+Blanco/Azul		Blanco/Azul
+Verde		        Verde
+Blanco/Marrón		Blanco/Marrón
+Marrón		        Marrón
+
+--------------------------------------------------
+
+### CONEXION SW-SW o PC a PC (568-A/cable crossover)
+
+Conector 1 (568-B)	Conector 2 (568-A)
+------------------	------------------
+Blanco/Naranja		Blanco/Verde
+Naranja			Verde
+Blanco/Verde		Blanco/Naranja
+Azul			Azul
+Blanco/Azul		Blanco/Azul
+Verde			Naranja
+Blanco/Marrón		Blanco/Marrón
+Marrón			Marrón
+
+

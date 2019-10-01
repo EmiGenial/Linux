@@ -1,0 +1,14 @@
+Por ejemplo, buscamos la palabra "texto" dentro de todos los archivos de texto (.txt) que tengamos en el directorio "home":
+grep "texto" /home/ *.txt
+
+Si queremos buscar en ese directorio y en los que están dentro de él:
+grep -r "texto" /home/ *.txt
+
+Buscar en ese directorio, en los que están dentro de él y en cualquier tipo de archivo:
+grep -r "texto" /home/
+
+Buscar la palabra "texto" dentro de un archivo ignorando distinción entre mayúsculas y minúsculas:
+grep -i "texto" nombre-del-archivo
+
+Buscar comentarios dentro de un archivo:
+grep ^# nombre-del-archivo

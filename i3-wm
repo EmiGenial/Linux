@@ -1,0 +1,55 @@
+I3-WM:
+$mod = WIN
+
+$mod + A --> "focus parent"
+$mod + S --> "Stacked layout"
+$mod + D --> "dmenu"
+$mod + F --> "Full Screen"
+
+$mod + H --> "split horizontal"
+$mod + V --> "split vertical"
+$mod + J --> "move down"
+$mod + ; --> "right"
+$mod + ñ --> "right"
+$mod + w --> "tablet layout"
+$mod + E --> "default layout"
+$mod + R --> "Rezise mode"  /  "exit" para salir o "ESC"
+
+$mod + ENTER --> "Open Terminal"
+$mod + e  -->  "Split/split vertical"
+$mod + s --> "Stacking"
+$mod --> "tabbed"
+
+SHIFT + $mod:
+$mod + WIN + Q --> "kill window"
+$mod + WIN + E --> "exit to i3"
+$mod + WIN + R --> "restart i3"
+
+CONFIGURACION:
+sudo apt-get install i3 dmenu i3status  /  sudo apt-get remove --purge [program]
+
+~/.i3/config  --> en el archivo "config" agregamos: "new_window pixel" y "new_float none"
+
+/etc/i3status.conf  "Son las configuraciones del entorno de usuario"
+i3 -v "Nuestra version de i3"
+i3Status -v  <--- apt-get install i3status
+
+
+#ver unidades::
+sudo lsblk -fm
+
+#Montaje::
+sudo mount /dev/sdbxxx /home/matt/media
+
+#Desmontaje::
+sudo umount /dev/sdbxxx  o bien:     sudo umount /home/matt/media
+
+
+# WGET:
+wget https://url ....   -O ~/path/.../file.img
+                                      file.png
+
+wget https://url ....   -P ~/path/to/folder
+
+# CURL:
+
