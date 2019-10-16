@@ -1,0 +1,93 @@
+###Instalacion:
+	$apt-get install tmux
+
+###Crear una nueva sesion:
+	$tmux new -s primera_sesion
+
+###Accionador de comandos:
+	ctrl+B
+
+###Dividir ventanas:
+	VERTICAL	ctrl+B %
+	HORIZONTAL	ctrl+B "
+
+###Achicar y agrandar ventana:
+	CTRL+B+UP
+	CTRL+B+DOWN
+	CTRL+B+LEFT
+	CTRL+B+RIGHT
+
+###Moverse por las ventanas:
+	CTRL+B o
+
+###Cerrar una ventana:
+	ctrl+B x
+
+###Crear nueva solapa:
+	ctrl+B c
+
+###Moverse por solapas:
+	ctrl+B 0,1,2,3, ... ,N
+
+###Moverse a la proxima solapa:
+	ctrl+B n
+
+###Moverse a la solapa anterior:
+	ctrl+B p
+
+###Moverse por el buffer de la consola:
+	ctrl+B [  	#salir con "q"
+
+###Desconectarse de la sesion manteniendo la configuracion actual:
+	ctrl+B d
+
+###Listar las sesiones abiertas:
+	tmux list-sessions
+
+---SESIONES--------------------------------------------------
+###Iniciar a una sesion y conectarse a ella.
+	tmux
+
+###Iniciar una sesion con nombre "sessionname" y conectarse a ella. Si especificamaos el parametro -d se crea la conexion pero no se conecta a ella.
+	tmux new -s sessionname [-d]
+
+###Listar las sesiones en ejecucion:
+	tmux ls
+
+###Crea una nueva sesion con nombre sessionname que comparte todas las ventanas con la sesion existente session:
+	tmux new -s sessionname -t session
+
+###Renombrar la sesion a newsessionname:
+	tmux rename [-t sessionname] newsessionname
+
+###Vincularse/conectarse a una sesion:
+	tmux attach [-t nro_session]           o por nombre:  tmux attach [-t sessionname]
+
+###Desvincularse/desconectarse de una sesion:
+	tmux detach [-t sessionname]
+
+###Finalizar sesion cerrando todas las ventanas asociadas y desvinculando a todos los clientes conectados a ella:
+	tmux kill-session [- sessionname]
+
+### Copiar y Pegar
+    1.Entrar en modo de copia  :  ctrl+B [
+    2.Seleccionar palabra:        ctrl+Spacebar
+    3.Copiar en buffer:           alt+w
+    4.Copiar lo guardado:         ctrl+B ]
+
+### Buscar una palabra en el scroll:
+    1.Entrar en modo de copia  :  ctrl+B [
+    2.Ingresar cadena buscada  :  ctrl+s    (esto comienza de arriba hacia abajo)
+    3.Ingresar cadena buscada  :  ctrl+r    (esto comienza de abajo hacia arriba)
+    3.Presionar enter para buscar.
+    4.Presionar "n" para saltar palabra x palabra encontrada, de forma descendente
+    5.Presionar shift+n para saltar palabra x palabra encontrada pero de forma ascendente.
+
+### para ver el listado de ventanas de una sesión sería:
+    Ctrl+B w
+
+### Renombrar un panel:
+    Ctrl + b + ,
+
+
+
